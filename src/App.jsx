@@ -367,3 +367,44 @@ return (
 </div>
 )
 }
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Schedule from "./pages/Schedule";
+import Habits from "./pages/Habits";
+import MockTests from "./pages/MockTests";
+import Motivation from "./pages/Motivation";
+import Profile from "./pages/Profile";
+
+export default function App() {
+  return (
+    <Router>
+      <div className="flex h-screen">
+        {/* Sidebar */}
+        <aside className="w-64 bg-gray-900 text-white flex flex-col p-4">
+          <h1 className="text-xl font-bold mb-6">Career Tracker 🚀</h1>
+          <nav className="flex flex-col gap-3">
+            <Link to="/" className="hover:bg-gray-700 p-2 rounded">Dashboard</Link>
+            <Link to="/schedule" className="hover:bg-gray-700 p-2 rounded">Schedule</Link>
+            <Link to="/habits" className="hover:bg-gray-700 p-2 rounded">Habits</Link>
+            <Link to="/mock-tests" className="hover:bg-gray-700 p-2 rounded">Mock Tests</Link>
+            <Link to="/motivation" className="hover:bg-gray-700 p-2 rounded">Motivation</Link>
+            <Link to="/profile" className="hover:bg-gray-700 p-2 rounded">Profile</Link>
+          </nav>
+        </aside>
+
+        {/* Page Content */}
+        <main className="flex-1 bg-gray-100 p-6 overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/habits" element={<Habits />} />
+            <Route path="/mock-tests" element={<MockTests />} />
+            <Route path="/motivation" element={<Motivation />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+}
