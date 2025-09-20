@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Schedule from "./pages/Schedule";
 import Habits from "./pages/Habits";
 import MockTests from "./pages/MockTests";
+import Profile from "./pages/profile"; // ✅ Corrected import (uppercase)
 
 export default function App() {
   return (
@@ -12,7 +14,7 @@ export default function App() {
           <Link to="/">Home</Link>
           <Link to="/schedule">Schedule</Link>
           <Link to="/habits">Habits</Link>
-          <Link to="/mocktests">Mock Tests</Link>
+          <Link to="/mock-tests">Mock Tests</Link> {/* consistent with Route */}
           <Link to="/profile">Profile</Link>
         </nav>
         <div className="p-6">
@@ -20,7 +22,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/habits" element={<Habits />} />
-            <Route path="/mocktests" element={<MockTests />} />
+            <Route path="/mock-tests" element={<MockTests />} /> {/* consistent */}
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
@@ -28,3 +30,4 @@ export default function App() {
     </Router>
   );
 }
+
